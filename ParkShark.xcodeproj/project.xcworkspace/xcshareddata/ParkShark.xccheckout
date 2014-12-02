@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D5D3D125-AF7F-4D93-BF6D-6AAF02833DFF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ParkShark</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>56D24300BBF0C580DAFEDD557159D1A48A5B74DE</key>
+		<string>github.com:MasterGerhard/ParkShark.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ParkShark.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>56D24300BBF0C580DAFEDD557159D1A48A5B74DE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:MasterGerhard/ParkShark.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>56D24300BBF0C580DAFEDD557159D1A48A5B74DE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>56D24300BBF0C580DAFEDD557159D1A48A5B74DE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ParkShark</string>
+		</dict>
+	</array>
+</dict>
+</plist>

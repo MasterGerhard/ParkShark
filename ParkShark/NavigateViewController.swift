@@ -8,45 +8,81 @@
 
 import UIKit
 
-class NavigateViewController: UIViewController, GMSMapViewDelegate {
 
-    @IBOutlet var mapView: GMSMapView!
-
+class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var pinImageVerticalConstraint: NSLayoutConstraint!
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //
         
+        mapView.delegate = self
+        
+        locationManager.delegate = self;
+        locationManager.requestWhenInUseAuthorization()
         
         
-        /*
-        self.mapView.myLocationEnabled = true
-        self.mapView.mapType = kGMSTypeNormal
-        self.mapView.settings.compassButton = true
-        self.mapView.settings.myLocationButton = true
-        self.mapView.delegate = self
-       
-       
-        var camera : GMSCameraPosition = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.2, zoom: 6)
-        self.mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        self.mapView.myLocationEnabled = true
-        var marker : GMSMarker = GMSMarker();
-        marker.position = CLLocationCoordinate2DMake(-33.86, 151.2)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = self.mapView
-         */
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     @IBAction func menuButtonPressed() {
         toggleSideMenuView()
     }
+    
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedWhenInUse {
+            NSLog("authorized")
+            locationManager.startUpdatingLocation()
+            
+            mapView.myLocationEnabled = true
+            mapView.settings.myLocationButton = true
+            
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        if let location = locations.first as? CLLocation {
+            NSLog("new loc")
+    
+            self.mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            
+            locationManager.stopUpdatingLocation()
+        }
+    }
+    
 
+    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
+        let geocoder = GMSGeocoder()
+        geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
+            
+            //Add this line
+            self.addressLabel.unlock()
+            if let address = response.firstResult() {
+                let lines = address.lines as [String]
+                self.addressLabel.text = join("\n", lines)
+                
+                let labelHeight = self.addressLabel.intrinsicContentSize().height
+                self.mapView.padding = UIEdgeInsets(top: self.topLayoutGuide.length, left: 0, bottom: labelHeight, right: 0)
+                UIView.animateWithDuration(0.25) {
+                    self.pinImageVerticalConstraint.constant = ((labelHeight - self.topLayoutGuide.length) * 2)
+                    self.view.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    func mapView(mapView: GMSMapView!, willMove gesture: Bool) {
+        self.addressLabel.lock()
+        
+    }
+    
+    func mapView(mapView: GMSMapView!, idleAtCameraPosition position: GMSCameraPosition!) {
+        reverseGeocodeCoordinate(position.target)
+    }
 }
 
