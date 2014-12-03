@@ -50,6 +50,7 @@ class RootViewController:ENSideMenuNavigationController, ENSideMenuDelegate {
     
 }
 
+// Slide out menu is a TableViewController
 class menuTableViewController: UITableViewController {
     var selectedMenuItem : Int = 0
     override func viewDidLoad() {
@@ -108,7 +109,7 @@ class menuTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        println("did select row: \(indexPath.row)")
+        //println("did select row: \(indexPath.row)")
         
         if (indexPath.row == selectedMenuItem) {
             return

@@ -35,6 +35,10 @@
 		A6C013951A14119E00DE7991 /* COPYING.txt in Resources */ = {isa = PBXBuildFile; fileRef = A6C013941A14119E00DE7991 /* COPYING.txt */; };
 		A6E868D71A2D1B7D00B80CEC /* parkinglot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868D61A2D1B7D00B80CEC /* parkinglot.swift */; };
 		A6E868DA1A2D348900B80CEC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868D91A2D348900B80CEC /* UIViewExtension.swift */; };
+		A6E868DE1A2F53D700B80CEC /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868DD1A2F53D700B80CEC /* GooglePlace.swift */; };
+		A6E868E01A2F53F200B80CEC /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868DF1A2F53F200B80CEC /* GoogleDataProvider.swift */; };
+		A6E868E31A2F55BE00B80CEC /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868E11A2F55BE00B80CEC /* MarkerInfoView.swift */; };
+		A6E868E41A2F55BE00B80CEC /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E868E21A2F55BE00B80CEC /* MarkerInfoView.xib */; };
 		A6E87F8F1A14074E006C996A /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6E87F8E1A14074E006C996A /* GoogleMaps.bundle */; };
 		A6E87FE31A140C1C006C996A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6E87FE11A140C1C006C996A /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -83,6 +87,10 @@
 		A6C013941A14119E00DE7991 /* COPYING.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.txt; sourceTree = "<group>"; };
 		A6E868D61A2D1B7D00B80CEC /* parkinglot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parkinglot.swift; sourceTree = "<group>"; };
 		A6E868D91A2D348900B80CEC /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		A6E868DD1A2F53D700B80CEC /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
+		A6E868DF1A2F53F200B80CEC /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
+		A6E868E11A2F55BE00B80CEC /* MarkerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
+		A6E868E21A2F55BE00B80CEC /* MarkerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
 		A6E87F8E1A14074E006C996A /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../Downloads/GoogleMaps-iOS-1.9.0/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
 		A6E87FE21A140C1C006C996A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,12 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				A634AA971A13ED010095DB8A /* AppDelegate.swift */,
-				A6995ABD1A1D2F740087BF0E /* RootViewController.swift */,
-				A634AA991A13ED010095DB8A /* NavigateViewController.swift */,
-				A6995AB71A1D2E2B0087BF0E /* AboutViewController.swift */,
-				A6995ABB1A1D2F310087BF0E /* LotsViewController.swift */,
-				A6995AB91A1D2ED60087BF0E /* ProfileViewController.swift */,
-				A6E868D91A2D348900B80CEC /* UIViewExtension.swift */,
+				A6E868E61A2F5E1600B80CEC /* Views */,
+				A6E868E51A2F5DE900B80CEC /* ViewControllers */,
 				A634AA9B1A13ED010095DB8A /* Main.storyboard */,
 				A6E868D81A2D1B8800B80CEC /* Model */,
 				A634AA951A13ED010095DB8A /* Supporting Files */,
@@ -230,8 +234,32 @@
 			isa = PBXGroup;
 			children = (
 				A6E868D61A2D1B7D00B80CEC /* parkinglot.swift */,
+				A6E868DD1A2F53D700B80CEC /* GooglePlace.swift */,
+				A6E868DF1A2F53F200B80CEC /* GoogleDataProvider.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A6E868E51A2F5DE900B80CEC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A6995ABD1A1D2F740087BF0E /* RootViewController.swift */,
+				A634AA991A13ED010095DB8A /* NavigateViewController.swift */,
+				A6995AB71A1D2E2B0087BF0E /* AboutViewController.swift */,
+				A6995ABB1A1D2F310087BF0E /* LotsViewController.swift */,
+				A6995AB91A1D2ED60087BF0E /* ProfileViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A6E868E61A2F5E1600B80CEC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A6E868D91A2D348900B80CEC /* UIViewExtension.swift */,
+				A6E868E11A2F55BE00B80CEC /* MarkerInfoView.swift */,
+				A6E868E21A2F55BE00B80CEC /* MarkerInfoView.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +346,7 @@
 				A634AAA21A13ED010095DB8A /* LaunchScreen.xib in Resources */,
 				A634AA9F1A13ED010095DB8A /* Images.xcassets in Resources */,
 				A6C013951A14119E00DE7991 /* COPYING.txt in Resources */,
+				A6E868E41A2F55BE00B80CEC /* MarkerInfoView.xib in Resources */,
 				A6E87F8F1A14074E006C996A /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,12 +366,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6995AB81A1D2E2B0087BF0E /* AboutViewController.swift in Sources */,
+				A6E868E01A2F53F200B80CEC /* GoogleDataProvider.swift in Sources */,
 				A6995AB31A1D2CA30087BF0E /* ENSideMenu.swift in Sources */,
 				A6E868DA1A2D348900B80CEC /* UIViewExtension.swift in Sources */,
 				A6995ABE1A1D2F740087BF0E /* RootViewController.swift in Sources */,
 				A634AA9A1A13ED010095DB8A /* NavigateViewController.swift in Sources */,
 				A6E868D71A2D1B7D00B80CEC /* parkinglot.swift in Sources */,
 				A634AA981A13ED010095DB8A /* AppDelegate.swift in Sources */,
+				A6E868DE1A2F53D700B80CEC /* GooglePlace.swift in Sources */,
+				A6E868E31A2F55BE00B80CEC /* MarkerInfoView.swift in Sources */,
 				A6995ABC1A1D2F310087BF0E /* LotsViewController.swift in Sources */,
 				A6995ABA1A1D2ED60087BF0E /* ProfileViewController.swift in Sources */,
 				A6995AB41A1D2CA30087BF0E /* ENSideMenuNavigationController.swift in Sources */,

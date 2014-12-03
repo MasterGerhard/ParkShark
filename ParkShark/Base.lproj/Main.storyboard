@@ -45,12 +45,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Peg-bg-D6Y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="AFp-WM-j6c"/>
                             <constraint firstItem="Xgt-ir-6hL" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="FOe-Jb-Fea"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Peg-bg-D6Y" secondAttribute="bottom" id="Gkk-6N-7xc"/>
                             <constraint firstItem="Xgt-ir-6hL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Xmd-ES-5wW"/>
-                            <constraint firstAttribute="trailing" secondItem="Peg-bg-D6Y" secondAttribute="trailing" id="Zau-CL-0tZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xgt-ir-6hL" secondAttribute="trailing" constant="-16" id="ce1-TZ-ktE"/>
-                            <constraint firstItem="Peg-bg-D6Y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="gCD-8o-W6k"/>
+                            <constraint firstAttribute="trailing" secondItem="Peg-bg-D6Y" secondAttribute="trailing" id="f7y-MJ-ycI"/>
+                            <constraint firstItem="Peg-bg-D6Y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="p6X-3A-OQo"/>
+                            <constraint firstAttribute="bottom" secondItem="Peg-bg-D6Y" secondAttribute="bottom" id="psi-Ag-Acm"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Xgt-ir-6hL" secondAttribute="bottom" id="zoB-jz-HJw"/>
                         </constraints>
                     </view>
@@ -59,6 +60,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="qPe-0h-SZu">
                             <connections>
                                 <action selector="menuButtonPressed" destination="vXZ-lx-hvc" id="vhy-Cu-wel"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Refresh Lots" id="3Cw-Qb-MAK">
+                            <connections>
+                                <action selector="refreshPlaces:" destination="vXZ-lx-hvc" id="bEf-OP-X3Y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
