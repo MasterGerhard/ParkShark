@@ -26,6 +26,7 @@
 		A634AAD01A13F9BA0095DB8A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AACF1A13F9BA0095DB8A /* OpenGLES.framework */; };
 		A634AAD21A13F9C00095DB8A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AAD11A13F9C00095DB8A /* QuartzCore.framework */; };
 		A634AAD41A13F9C80095DB8A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AAD31A13F9C80095DB8A /* SystemConfiguration.framework */; };
+		A63BB5DF1A352170008B1E76 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A63BB5DE1A352170008B1E76 /* GoogleMaps.bundle */; };
 		A6995AB31A1D2CA30087BF0E /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6995AB11A1D2CA30087BF0E /* ENSideMenu.swift */; };
 		A6995AB41A1D2CA30087BF0E /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6995AB21A1D2CA30087BF0E /* ENSideMenuNavigationController.swift */; };
 		A6995AB81A1D2E2B0087BF0E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6995AB71A1D2E2B0087BF0E /* AboutViewController.swift */; };
@@ -39,7 +40,6 @@
 		A6E868E01A2F53F200B80CEC /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868DF1A2F53F200B80CEC /* GoogleDataProvider.swift */; };
 		A6E868E31A2F55BE00B80CEC /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868E11A2F55BE00B80CEC /* MarkerInfoView.swift */; };
 		A6E868E41A2F55BE00B80CEC /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E868E21A2F55BE00B80CEC /* MarkerInfoView.xib */; };
-		A6E87F8F1A14074E006C996A /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6E87F8E1A14074E006C996A /* GoogleMaps.bundle */; };
 		A6E87FE31A140C1C006C996A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6E87FE11A140C1C006C996A /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +78,7 @@
 		A634AAD11A13F9C00095DB8A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A634AAD31A13F9C80095DB8A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A634AAD51A13FAF10095DB8A /* ParkShark-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParkShark-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		A63BB5DE1A352170008B1E76 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		A6995AB11A1D2CA30087BF0E /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		A6995AB21A1D2CA30087BF0E /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
 		A6995AB71A1D2E2B0087BF0E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		A6E868DF1A2F53F200B80CEC /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
 		A6E868E11A2F55BE00B80CEC /* MarkerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
 		A6E868E21A2F55BE00B80CEC /* MarkerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
-		A6E87F8E1A14074E006C996A /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../../../../Downloads/GoogleMaps-iOS-1.9.0/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
 		A6E87FE21A140C1C006C996A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,9 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				A634AA971A13ED010095DB8A /* AppDelegate.swift */,
+				A634AA9B1A13ED010095DB8A /* Main.storyboard */,
 				A6E868E61A2F5E1600B80CEC /* Views */,
 				A6E868E51A2F5DE900B80CEC /* ViewControllers */,
-				A634AA9B1A13ED010095DB8A /* Main.storyboard */,
 				A6E868D81A2D1B8800B80CEC /* Model */,
 				A634AA951A13ED010095DB8A /* Supporting Files */,
 			);
@@ -164,7 +164,7 @@
 		A634AA951A13ED010095DB8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A6E87F8E1A14074E006C996A /* GoogleMaps.bundle */,
+				A63BB5DE1A352170008B1E76 /* GoogleMaps.bundle */,
 				A634AAD51A13FAF10095DB8A /* ParkShark-Bridging-Header.h */,
 				A634AA9E1A13ED010095DB8A /* Images.xcassets */,
 				A634AAA01A13ED010095DB8A /* LaunchScreen.xib */,
@@ -345,9 +345,9 @@
 				A634AA9D1A13ED010095DB8A /* Main.storyboard in Resources */,
 				A634AAA21A13ED010095DB8A /* LaunchScreen.xib in Resources */,
 				A634AA9F1A13ED010095DB8A /* Images.xcassets in Resources */,
+				A63BB5DF1A352170008B1E76 /* GoogleMaps.bundle in Resources */,
 				A6C013951A14119E00DE7991 /* COPYING.txt in Resources */,
 				A6E868E41A2F55BE00B80CEC /* MarkerInfoView.xib in Resources */,
-				A6E87F8F1A14074E006C996A /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

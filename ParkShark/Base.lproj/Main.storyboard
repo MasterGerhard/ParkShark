@@ -108,7 +108,35 @@
                     <view key="view" contentMode="scaleToFill" id="XRc-xO-SRv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ParkShark" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNf-2m-xk7">
+                                <rect key="frame" x="259" y="289" width="82" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="Ipe-LK-GN4"/>
+                                    <constraint firstAttribute="height" constant="21" id="ubA-Ei-3K5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j8-6Y-Wfo">
+                                <rect key="frame" x="249" y="318" width="103" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="103" id="lP0-LQ-CCk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aNf-2m-xk7" firstAttribute="top" secondItem="kFB-P4-NZ6" secondAttribute="bottom" constant="269" id="F06-Hs-peA"/>
+                            <constraint firstItem="E59-I5-x3I" firstAttribute="top" secondItem="6j8-6Y-Wfo" secondAttribute="bottom" constant="261" id="Wob-h0-qR7"/>
+                            <constraint firstItem="aNf-2m-xk7" firstAttribute="centerX" secondItem="6j8-6Y-Wfo" secondAttribute="centerX" id="jOV-Qf-G2I"/>
+                            <constraint firstItem="6j8-6Y-Wfo" firstAttribute="top" secondItem="aNf-2m-xk7" secondAttribute="bottom" constant="8" symbolic="YES" id="qR5-0c-Zwk"/>
+                            <constraint firstItem="6j8-6Y-Wfo" firstAttribute="centerX" secondItem="XRc-xO-SRv" secondAttribute="centerX" id="rTX-SV-NeB"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" id="Rn7-qB-Ywn"/>
                 </viewController>
