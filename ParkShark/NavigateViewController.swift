@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
 
@@ -29,6 +30,8 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
         
         mapView.delegate = self
         
+        self.mapView.camera = GMSCameraPosition.cameraWithLatitude(41.8072, longitude: -72.2525, zoom: 15)
+        self.populateMapWithParkingLots()
         locationManager.delegate = self;
         locationManager.requestWhenInUseAuthorization()
         
@@ -48,8 +51,7 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
             locationManager.startUpdatingLocation()
             
             mapView.myLocationEnabled = true
-            mapView.settings.myLocationButton = true
-            fetchNearbyPlaces(mapView.camera.target)
+            //mapView.settings.myLocationButton = true
 
             
         }
@@ -57,8 +59,7 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         if let location = locations.first as? CLLocation {
-            self.mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            fetchNearbyPlaces(location.coordinate)
+            //self.mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
             locationManager.stopUpdatingLocation()
         }
     }
@@ -69,7 +70,7 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
         geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
             
             self.addressLabel.unlock()
-            if let address = response.firstResult() {
+            if let address = response?.firstResult() {
                 let lines = address.lines as [String]
                 
                 /*  Don't want address label currently
@@ -99,15 +100,22 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
     }
    
     func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
-        let placeMarker = marker as PlaceMarker
+        let placeMarker = marker as ParkingLotMarker
         
+     
         if let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView {
-            infoView.nameLabel.text = placeMarker.place.name
-            
-            if let photo = placeMarker.place.photo {
-                infoView.placePhoto.image = photo
-            } else {
-                infoView.placePhoto.image = UIImage(named: "generic")
+            infoView.nameLabel.text = placeMarker.lot.name
+            if let openSpots = placeMarker.lot.openSpaces {
+                if (openSpots == 0) {
+                    infoView.numberOfSpotsAvailable.text = "This lot is full"
+                }
+                if (openSpots == 1) {
+                    infoView.numberOfSpotsAvailable.text = "Sorry only 1 spot available"
+                }
+                if (openSpots > 1) {
+                    infoView.numberOfSpotsAvailable.text = "\(openSpots) spots available"
+                }
+                
             }
             
             return infoView
@@ -115,6 +123,7 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
             return nil
         }
     }
+
     
     var mapRadius: Double {
       get {
@@ -132,37 +141,68 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
       }
     }
     
-    func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
+    func populateMapWithParkingLots() {
      
         mapView.clear()
-     
-        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:mapRadius, types: searchedTypes) { places in
-            for place: GooglePlace in places {
-                
-                let marker = PlaceMarker(place: place)
-                
-                marker.map = self.mapView
+        var app = UIApplication.sharedApplication()
+        app.networkActivityIndicatorVisible = true
+        parkingLots.sharedInstance.setLotData({
+            dataIsSet in
+            if dataIsSet {
+                for lot in parkingLots.sharedInstance.lotArray {
+                    let marker = ParkingLotMarker(lot: lot as parkingLot)
+                    marker.map = self.mapView
+                }
+                app.networkActivityIndicatorVisible = false
             }
-        }
+        })
     }
     
-    // Refreshes the on screen displayed markers
-    // Eventually should not need a button for this
-    @IBAction func refreshPlaces(sender: AnyObject) {
-        fetchNearbyPlaces(mapView.camera.target)
+
+    @IBAction func centerMap(sender: UIBarButtonItem) {
+        self.mapView.camera = GMSCameraPosition.cameraWithLatitude(41.8072, longitude: -72.2525, zoom: 15)
+
     }
+    
+    func mapView(mapView: GMSMapView!, didTapInfoWindowOfMarker marker: GMSMarker!) {
+        let placeMarker = marker as ParkingLotMarker
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+        let detailView: LotDetailView = mainStoryboard.instantiateViewControllerWithIdentifier("detailView") as LotDetailView
+        detailView.setLotForView(placeMarker.lot)
+        self.navigationController?.pushViewController(detailView, animated: true)
+        
+
+    }
+/* Mark: Adding Custom Button to MarkerInfoView
+    
+    func replaceCalloutViewForCoordinates(coordinate: CLLocationCoordinate2D, pMapView:GMSMapView) {
+        
+    }
+    
+    func mapView(mapView: GMSMapView!, didChangeCameraPosition position: GMSCameraPosition!) {
+        
+    }
+    
+    func mapView(mapView: GMSMapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        
+    }
+    func mapView(mapView: GMSMapView!, markerInfoWindow marker: GMSMarker!) -> UIView! {
+        
+    }
+  */
 }
 
 // MARK: Custom Marker Class
-class PlaceMarker: GMSMarker {
-    let place: GooglePlace!
-    init(place: GooglePlace) {
-        self.place = place
+class ParkingLotMarker: GMSMarker {
+    let lot: parkingLot!
+    init(lot: parkingLot) {
+        self.lot = lot
         super.init()
-        
-        position = place.coordinate
-        icon = UIImage(named: place.placeType+"_pin")
+        var cord = CLLocationCoordinate2DMake(lot.Latitude!, lot.Longitude!)
+        position = cord
+        icon = UIImage(named: "parking_pin")
         groundAnchor = CGPoint(x: 0.5, y: 1)
         appearAnimation = kGMSMarkerAnimationPop
+
     }
 }
