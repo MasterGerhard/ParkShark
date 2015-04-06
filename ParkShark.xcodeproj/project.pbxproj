@@ -16,7 +16,6 @@
 		A634AAAE1A13ED010095DB8A /* ParkSharkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A634AAAD1A13ED010095DB8A /* ParkSharkTests.swift */; };
 		A634AAB81A13F7650095DB8A /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AAB71A13F7650095DB8A /* GoogleMaps.framework */; };
 		A634AABE1A13F9630095DB8A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AABD1A13F9630095DB8A /* AVFoundation.framework */; };
-		A634AAC01A13F96B0095DB8A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AABF1A13F96B0095DB8A /* CoreData.framework */; };
 		A634AAC21A13F9720095DB8A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AAC11A13F9720095DB8A /* CoreLocation.framework */; };
 		A634AAC41A13F9790095DB8A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AAC31A13F9790095DB8A /* CoreText.framework */; };
 		A634AAC61A13F97F0095DB8A /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AAC51A13F97F0095DB8A /* GLKit.framework */; };
@@ -34,16 +33,14 @@
 		A6995ABA1A1D2ED60087BF0E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6995AB91A1D2ED60087BF0E /* ProfileViewController.swift */; };
 		A6995ABC1A1D2F310087BF0E /* LotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6995ABB1A1D2F310087BF0E /* LotsViewController.swift */; };
 		A6995ABE1A1D2F740087BF0E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6995ABD1A1D2F740087BF0E /* RootViewController.swift */; };
+		A6B628291AD20C2F00DD2029 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AABF1A13F96B0095DB8A /* CoreData.framework */; };
 		A6C013951A14119E00DE7991 /* COPYING.txt in Resources */ = {isa = PBXBuildFile; fileRef = A6C013941A14119E00DE7991 /* COPYING.txt */; };
 		A6DF20C71AC303C40091AE4D /* LotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DF20C61AC303C40091AE4D /* LotDetailView.swift */; };
 		A6DFFEC11A8BC0F0001BC76F /* parkingLots.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DFFEC01A8BC0F0001BC76F /* parkingLots.swift */; };
 		A6E868D71A2D1B7D00B80CEC /* parkingLot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868D61A2D1B7D00B80CEC /* parkingLot.swift */; };
 		A6E868DA1A2D348900B80CEC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868D91A2D348900B80CEC /* UIViewExtension.swift */; };
-		A6E868DE1A2F53D700B80CEC /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868DD1A2F53D700B80CEC /* GooglePlace.swift */; };
-		A6E868E01A2F53F200B80CEC /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868DF1A2F53F200B80CEC /* GoogleDataProvider.swift */; };
 		A6E868E31A2F55BE00B80CEC /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E868E11A2F55BE00B80CEC /* MarkerInfoView.swift */; };
 		A6E868E41A2F55BE00B80CEC /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E868E21A2F55BE00B80CEC /* MarkerInfoView.xib */; };
-		A6E87FE31A140C1C006C996A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6E87FE11A140C1C006C996A /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,11 +92,8 @@
 		A6DFFEC01A8BC0F0001BC76F /* parkingLots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parkingLots.swift; sourceTree = "<group>"; };
 		A6E868D61A2D1B7D00B80CEC /* parkingLot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parkingLot.swift; sourceTree = "<group>"; };
 		A6E868D91A2D348900B80CEC /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		A6E868DD1A2F53D700B80CEC /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
-		A6E868DF1A2F53F200B80CEC /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
 		A6E868E11A2F55BE00B80CEC /* MarkerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
 		A6E868E21A2F55BE00B80CEC /* MarkerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
-		A6E87FE21A140C1C006C996A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B628291AD20C2F00DD2029 /* CoreData.framework in Frameworks */,
 				A634AAD41A13F9C80095DB8A /* SystemConfiguration.framework in Frameworks */,
 				A634AAD21A13F9C00095DB8A /* QuartzCore.framework in Frameworks */,
 				A634AAD01A13F9BA0095DB8A /* OpenGLES.framework in Frameworks */,
@@ -117,7 +112,6 @@
 				A634AAC61A13F97F0095DB8A /* GLKit.framework in Frameworks */,
 				A634AAC41A13F9790095DB8A /* CoreText.framework in Frameworks */,
 				A634AAC21A13F9720095DB8A /* CoreLocation.framework in Frameworks */,
-				A634AAC01A13F96B0095DB8A /* CoreData.framework in Frameworks */,
 				A634AABE1A13F9630095DB8A /* AVFoundation.framework in Frameworks */,
 				A634AAB81A13F7650095DB8A /* GoogleMaps.framework in Frameworks */,
 			);
@@ -185,7 +179,6 @@
 				A634AA9E1A13ED010095DB8A /* Images.xcassets */,
 				A634AAA01A13ED010095DB8A /* LaunchScreen.xib */,
 				A634AA961A13ED010095DB8A /* Info.plist */,
-				A6E87FE11A140C1C006C996A /* Model.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -252,8 +245,6 @@
 				A633E74D1A98F052003EBE94 /* ObjCFiles */,
 				A6E868D61A2D1B7D00B80CEC /* parkingLot.swift */,
 				A6DFFEC01A8BC0F0001BC76F /* parkingLots.swift */,
-				A6E868DD1A2F53D700B80CEC /* GooglePlace.swift */,
-				A6E868DF1A2F53F200B80CEC /* GoogleDataProvider.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -330,6 +321,7 @@
 				TargetAttributes = {
 					A634AA911A13ED010095DB8A = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 843R8SK4WN;
 					};
 					A634AAA61A13ED010095DB8A = {
 						CreatedOnToolsVersion = 6.1;
@@ -386,21 +378,18 @@
 			files = (
 				A6995AB81A1D2E2B0087BF0E /* AboutViewController.swift in Sources */,
 				A6DFFEC11A8BC0F0001BC76F /* parkingLots.swift in Sources */,
-				A6E868E01A2F53F200B80CEC /* GoogleDataProvider.swift in Sources */,
 				A6995AB31A1D2CA30087BF0E /* ENSideMenu.swift in Sources */,
 				A6E868DA1A2D348900B80CEC /* UIViewExtension.swift in Sources */,
 				A6995ABE1A1D2F740087BF0E /* RootViewController.swift in Sources */,
 				A634AA9A1A13ED010095DB8A /* NavigateViewController.swift in Sources */,
 				A6E868D71A2D1B7D00B80CEC /* parkingLot.swift in Sources */,
 				A634AA981A13ED010095DB8A /* AppDelegate.swift in Sources */,
-				A6E868DE1A2F53D700B80CEC /* GooglePlace.swift in Sources */,
 				A6DF20C71AC303C40091AE4D /* LotDetailView.swift in Sources */,
 				A633E74B1A98F01D003EBE94 /* BackendData.m in Sources */,
 				A6E868E31A2F55BE00B80CEC /* MarkerInfoView.swift in Sources */,
 				A6995ABC1A1D2F310087BF0E /* LotsViewController.swift in Sources */,
 				A6995ABA1A1D2ED60087BF0E /* ProfileViewController.swift in Sources */,
 				A6995AB41A1D2CA30087BF0E /* ENSideMenuNavigationController.swift in Sources */,
-				A6E87FE31A140C1C006C996A /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +515,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -536,6 +526,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ParkShark-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -544,6 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -553,6 +545,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ParkShark-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -621,19 +614,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A6E87FE11A140C1C006C996A /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A6E87FE21A140C1C006C996A /* Model.xcdatamodel */,
-			);
-			currentVersion = A6E87FE21A140C1C006C996A /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A634AA8A1A13ED010095DB8A /* Project object */;
 }

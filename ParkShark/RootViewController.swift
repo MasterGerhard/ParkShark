@@ -8,7 +8,7 @@
 
 import UIKit
 
-var viewControllerNames = ["Navigate","Lots","Profile","About"];
+var viewControllerNames = ["Navigate","Lots","About"];
 
 class RootViewController:ENSideMenuNavigationController, ENSideMenuDelegate {
     
@@ -82,7 +82,7 @@ class menuTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 4
+        return viewControllerNames.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

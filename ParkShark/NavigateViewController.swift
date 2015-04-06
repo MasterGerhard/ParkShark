@@ -21,7 +21,6 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
     var searchedTypes = ["parking"]
 
     let locationManager = CLLocationManager()
-    let dataProvider = GoogleDataProvider()
 
     // MARK: ViewController Lifecycle
     
@@ -30,7 +29,7 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
         
         mapView.delegate = self
         
-        self.mapView.camera = GMSCameraPosition.cameraWithLatitude(41.8072, longitude: -72.2525, zoom: 15)
+        self.mapView.camera = GMSCameraPosition.cameraWithLatitude(41.8072, longitude: -72.2525, zoom: 14)
         self.populateMapWithParkingLots()
         locationManager.delegate = self;
         locationManager.requestWhenInUseAuthorization()
@@ -200,7 +199,17 @@ class ParkingLotMarker: GMSMarker {
         super.init()
         var cord = CLLocationCoordinate2DMake(lot.Latitude!, lot.Longitude!)
         position = cord
-        icon = UIImage(named: "parking_pin")
+        var imageName = "parkingLot"
+        if (lot.openSpaces < 20) {
+            imageName = imageName + "Red"
+        }
+        else if (lot.openSpaces < 100) {
+        imageName = imageName + "Yellow"
+        }
+        else {
+            imageName = imageName + "Green"
+        }
+        icon = UIImage(named: imageName)
         groundAnchor = CGPoint(x: 0.5, y: 1)
         appearAnimation = kGMSMarkerAnimationPop
 
