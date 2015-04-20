@@ -33,18 +33,23 @@ class LotDetailView: UIViewController {
     
     override func viewDidLoad() {
         if let name = self.lot.name {
-                setNameLabel(name)
+                setLotNameLabel(name)
         }
-        if let totalSpots = self.lot.numberOfSpaces {
-            setTotalSpotsLabel(String(totalSpots))
+        if (self.lot.isOpen!) {
+            if let totalSpots = self.lot.numberOfSpaces {
+                setTotalSpotsLabel(String(totalSpots))
+            }
+            if let availableSpots = self.lot.numberOfFreeSpaces {
+                setAvailableSpotsLabel(String(availableSpots))
+            }
+            if let permitsAvailable = self.lot.permitsAccepted {
+                setPermitsAvailableText(permitsAvailable)
+            }
         }
-        if let availableSpots = self.lot.openSpaces {
-            setAvailableSpotsLabel(String(availableSpots))
+            else {
+                self.setLotClosed()
+            }
         }
-        if let permitsAvailable = self.lot.permitsAccepted {
-            setPermitsAvailableText(permitsAvailable)
-        }
-    }
 
     
     @IBAction func startNavigation(sender: UIButton) {
@@ -57,7 +62,7 @@ class LotDetailView: UIViewController {
         
     }
     
-    func setNameLabel(name:String) {
+    func setLotNameLabel(name:String) {
         self.nameLabel.text = name
     }
     
@@ -79,7 +84,11 @@ class LotDetailView: UIViewController {
         self.permitsAcceptedLabel.text = textLabel
     }
     
-    
+    func setLotClosed() {
+        self.totalNumSpacesLabel.text = "Sorry this lot is closed"
+        self.availableSpacesLabel.text = ""
+        self.permitsAcceptedLabel.text = ""
+    }
     
     
     

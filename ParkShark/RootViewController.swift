@@ -119,7 +119,7 @@ class menuTableViewController: UITableViewController {
         //Present new view controller
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
         var destViewController : UIViewController
-        destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(viewControllerNames[indexPath.row]) as UIViewController
+        destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(viewControllerNames[indexPath.row]) as! UIViewController
         destViewController.title = viewControllerNames[indexPath.row]
         sideMenuController()?.setContentViewController(destViewController)
     }

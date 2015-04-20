@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
+class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, navMenuBarButtionItem {
 
     // MARK: Instance Variables
     
@@ -37,6 +37,11 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
         
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+    }
+    
     // MARK: ViewController Navigation
     
     @IBAction func menuButtonPressed() {
@@ -70,7 +75,7 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
             
             self.addressLabel.unlock()
             if let address = response?.firstResult() {
-                let lines = address.lines as [String]
+                let lines = address.lines as! [String]
                 
                 /*  Don't want address label currently
                 
@@ -99,19 +104,22 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
     }
    
     func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
-        let placeMarker = marker as ParkingLotMarker
+        let placeMarker = marker as! ParkingLotMarker
         
      
         if let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView {
             infoView.nameLabel.text = placeMarker.lot.name
-            if let openSpots = placeMarker.lot.openSpaces {
-                if (openSpots == 0) {
+            if let openSpots = placeMarker.lot.numberOfFreeSpaces {
+                if (!placeMarker.lot.isOpen!) {
+                    infoView.numberOfSpotsAvailable.text = "Sorry this lot is closed"
+                }
+                else if (openSpots == 0) {
                     infoView.numberOfSpotsAvailable.text = "This lot is full"
                 }
-                if (openSpots == 1) {
+                else if (openSpots == 1) {
                     infoView.numberOfSpotsAvailable.text = "Sorry only 1 spot available"
                 }
-                if (openSpots > 1) {
+                else if (openSpots > 1) {
                     infoView.numberOfSpotsAvailable.text = "\(openSpots) spots available"
                 }
                 
@@ -149,7 +157,7 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
             dataIsSet in
             if dataIsSet {
                 for lot in parkingLots.sharedInstance.lotArray {
-                    let marker = ParkingLotMarker(lot: lot as parkingLot)
+                    let marker = ParkingLotMarker(lot: lot as! parkingLot)
                     marker.map = self.mapView
                 }
                 app.networkActivityIndicatorVisible = false
@@ -164,9 +172,9 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
     }
     
     func mapView(mapView: GMSMapView!, didTapInfoWindowOfMarker marker: GMSMarker!) {
-        let placeMarker = marker as ParkingLotMarker
+        let placeMarker = marker as! ParkingLotMarker
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-        let detailView: LotDetailView = mainStoryboard.instantiateViewControllerWithIdentifier("detailView") as LotDetailView
+        let detailView: LotDetailView = mainStoryboard.instantiateViewControllerWithIdentifier("detailView") as! LotDetailView
         detailView.setLotForView(placeMarker.lot)
         self.navigationController?.pushViewController(detailView, animated: true)
         
@@ -200,11 +208,16 @@ class ParkingLotMarker: GMSMarker {
         var cord = CLLocationCoordinate2DMake(lot.Latitude!, lot.Longitude!)
         position = cord
         var imageName = "parkingLot"
-        if (lot.openSpaces < 20) {
+        var percentFull : Double = Double(lot.carsInLot!) / Double(lot.numberOfSpaces!)
+        
+        if (!lot.isOpen!) {
             imageName = imageName + "Red"
         }
-        else if (lot.openSpaces < 100) {
-        imageName = imageName + "Yellow"
+        else if (percentFull > 0.75) {
+            imageName = imageName + "Red"
+        }
+        else if (percentFull >= 0.40) {
+            imageName = imageName + "Yellow"
         }
         else {
             imageName = imageName + "Green"

@@ -8,10 +8,19 @@
 
 import UIKit
 
-class AboutViewController: UIViewController {
+class AboutViewController: UIViewController, navMenuBarButtionItem {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var menuTitle : String? = "Menu"
+        var menuButton = UIBarButtonItem(title: menuTitle, style: UIBarButtonItemStyle.Plain, target: self, action: "menuButtonPressed")
+        
+        navigationItem.leftBarButtonItem = menuButton
     }
     
+    func menuButtonPressed() {
+        toggleSideMenuView()
+    }
+
 }

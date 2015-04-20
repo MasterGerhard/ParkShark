@@ -78,7 +78,9 @@ class ENSideMenu : NSObject {
             needUpdateApperance = true
         }
     }
-    private let menuPosition:ENSideMenuPosition = .Left
+
+    private var menuPosition : ENSideMenuPosition = .Left
+    
     var bouncingEnabled :Bool = true
     private let sideMenuContainerView =  UIView()
     private var menuTableViewController : UITableViewController!
@@ -89,9 +91,11 @@ class ENSideMenu : NSObject {
     private var isMenuOpen : Bool = false
     
     init(sourceView: UIView, menuPosition: ENSideMenuPosition) {
-        super.init()
+        
+        
         self.sourceView = sourceView
         self.menuPosition = menuPosition
+        super.init()
         self.setupMenuView()
     
         animator = UIDynamicAnimator(referenceView:sourceView)

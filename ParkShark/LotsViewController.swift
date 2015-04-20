@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LotsViewController: UITableViewController  {
+class LotsViewController: UITableViewController, navMenuBarButtionItem  {
 
     var lotsToDisplay: NSMutableArray = []
 
@@ -16,9 +16,12 @@ class LotsViewController: UITableViewController  {
         super.viewDidLoad()
         self.lotsToDisplay = parkingLots.sharedInstance.lotArray
         
+        var menuTitle : String? = "Menu"
+        var menuButton = UIBarButtonItem(title: menuTitle, style: UIBarButtonItemStyle.Plain, target: self, action: "menuButtonPressed")
+
+        navigationItem.leftBarButtonItem = menuButton
         
     }
-    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
@@ -31,18 +34,23 @@ class LotsViewController: UITableViewController  {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let CellIdentifier = "Cell"
         
-        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as UITableViewCell
+        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = (self.lotsToDisplay[indexPath.row] as parkingLot).name
+        cell.textLabel?.text = (self.lotsToDisplay[indexPath.row] as! parkingLot).name
         
         return cell;
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-        let detailView: LotDetailView = mainStoryboard.instantiateViewControllerWithIdentifier("detailView") as LotDetailView
-        detailView.setLotForView(self.lotsToDisplay[indexPath.row] as parkingLot)
+        let detailView: LotDetailView = mainStoryboard.instantiateViewControllerWithIdentifier("detailView") as! LotDetailView
+        detailView.setLotForView(self.lotsToDisplay[indexPath.row] as! parkingLot)
         self.navigationController?.pushViewController(detailView, animated: true)
     }
+    
+    func menuButtonPressed() {
+        toggleSideMenuView()
+    }
+
     
 }

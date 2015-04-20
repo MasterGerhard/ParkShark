@@ -16,7 +16,8 @@ class parkingLot {
     var id : Int?
     var name : String?
     var numberOfSpaces : Int?
-    var openSpaces : Int?
+    var numberOfFreeSpaces : Int?
+    var isOpen : Bool?
     var permitsAccepted : Array<String>?
     
     init(){}
@@ -28,8 +29,9 @@ class parkingLot {
         println(carsInLot)
         println(id)
         println(name)
+        println(isOpen)
         println(numberOfSpaces)
-        println(openSpaces)
+        println(numberOfFreeSpaces)
         println(permitsAccepted)
         println()
     }

@@ -27,6 +27,7 @@
 		A634AAD21A13F9C00095DB8A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AAD11A13F9C00095DB8A /* QuartzCore.framework */; };
 		A634AAD41A13F9C80095DB8A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A634AAD31A13F9C80095DB8A /* SystemConfiguration.framework */; };
 		A63BB5DF1A352170008B1E76 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A63BB5DE1A352170008B1E76 /* GoogleMaps.bundle */; };
+		A67359E91AE5A9C700B65C95 /* navMenuBarButtionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67359E81AE5A9C600B65C95 /* navMenuBarButtionItem.swift */; };
 		A6995AB31A1D2CA30087BF0E /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6995AB11A1D2CA30087BF0E /* ENSideMenu.swift */; };
 		A6995AB41A1D2CA30087BF0E /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6995AB21A1D2CA30087BF0E /* ENSideMenuNavigationController.swift */; };
 		A6995AB81A1D2E2B0087BF0E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6995AB71A1D2E2B0087BF0E /* AboutViewController.swift */; };
@@ -81,6 +82,7 @@
 		A634AAD31A13F9C80095DB8A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A634AAD51A13FAF10095DB8A /* ParkShark-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParkShark-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		A63BB5DE1A352170008B1E76 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
+		A67359E81AE5A9C600B65C95 /* navMenuBarButtionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navMenuBarButtionItem.swift; sourceTree = "<group>"; };
 		A6995AB11A1D2CA30087BF0E /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		A6995AB21A1D2CA30087BF0E /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
 		A6995AB71A1D2E2B0087BF0E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				A6995AB71A1D2E2B0087BF0E /* AboutViewController.swift */,
 				A6995ABB1A1D2F310087BF0E /* LotsViewController.swift */,
 				A6995AB91A1D2ED60087BF0E /* ProfileViewController.swift */,
+				A67359E81AE5A9C600B65C95 /* navMenuBarButtionItem.swift */,
 			);
 			name = StoryBoardViewControllers;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				A634AA981A13ED010095DB8A /* AppDelegate.swift in Sources */,
 				A6DF20C71AC303C40091AE4D /* LotDetailView.swift in Sources */,
 				A633E74B1A98F01D003EBE94 /* BackendData.m in Sources */,
+				A67359E91AE5A9C700B65C95 /* navMenuBarButtionItem.swift in Sources */,
 				A6E868E31A2F55BE00B80CEC /* MarkerInfoView.swift in Sources */,
 				A6995ABC1A1D2F310087BF0E /* LotsViewController.swift in Sources */,
 				A6995ABA1A1D2ED60087BF0E /* ProfileViewController.swift in Sources */,

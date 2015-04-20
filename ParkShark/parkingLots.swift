@@ -29,17 +29,28 @@ class parkingLots {
             for parklot in lotData {
                 
                 var lot = parkingLot()
-                lot.Latitude = (parklot["Latitude"] as NSString).doubleValue as CLLocationDegrees
-                lot.Longitude = (parklot["Longitude"] as NSString).doubleValue as CLLocationDegrees
-                lot.carsInLot = (parklot["carsInLot"] as String).toInt()
-                lot.id = (parklot["id"] as String).toInt()
-                lot.name = (parklot["name"] as String)
-                lot.numberOfSpaces = (parklot["numSpaces"] as String).toInt()
-                lot.openSpaces = (parklot["open"] as String).toInt()
-                lot.permitsAccepted = (parklot["permits"] as String).componentsSeparatedByString(",")
+                lot.Latitude = (parklot["Latitude"] as! NSString).doubleValue as CLLocationDegrees
+                lot.Longitude = (parklot["Longitude"] as! NSString).doubleValue as CLLocationDegrees
+                lot.carsInLot = (parklot["carsInLot"] as! String).toInt()
+                lot.id = (parklot["id"] as! String).toInt()
+                lot.name = (parklot["name"] as! String)
+                lot.numberOfSpaces = (parklot["numSpaces"] as! String).toInt()
+                
+                var freeSpaces : Int = lot.numberOfSpaces! - lot.carsInLot!
+                if (freeSpaces < 0) {
+                    freeSpaces = 0
+                }
+                lot.numberOfFreeSpaces = freeSpaces
+                if( (parklot["open"] as! String) == "1" ) {
+                    lot.isOpen = true
+                }
+                else {
+                    lot.isOpen = false
+                }
+                lot.permitsAccepted = (parklot["permits"] as! String).componentsSeparatedByString(",")
                 self.lotArray.addObject(lot)
             }
-            
+           
             completionBlock!(true)
         }
         
