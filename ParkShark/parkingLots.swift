@@ -21,7 +21,7 @@ class parkingLots {
             return
         }
         
-        // lotData is a MutableArray of NSDictionaries
+        
         data.getParkingLotData() { lotData in
             
             self.dataRetrieved = true

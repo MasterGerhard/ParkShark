@@ -30,7 +30,6 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
         mapView.delegate = self
         
         self.mapView.camera = GMSCameraPosition.cameraWithLatitude(41.8072, longitude: -72.2525, zoom: 14)
-        self.populateMapWithParkingLots()
         locationManager.delegate = self;
         locationManager.requestWhenInUseAuthorization()
         
@@ -39,7 +38,8 @@ class NavigateViewController: UIViewController, GMSMapViewDelegate, CLLocationMa
     }
     
     override func viewWillAppear(animated: Bool) {
-        
+            self.populateMapWithParkingLots()
+
     }
     
     // MARK: ViewController Navigation
